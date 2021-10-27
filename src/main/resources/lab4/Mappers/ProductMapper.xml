@@ -16,10 +16,18 @@
         <result property="state" column="state"/>
         <result property="weight" column="weight"/>
         <result property="disable" column="disable"/>
-        <association property="goods" select="getGoodsInfo" column=" goods_id" javaType="lab4.Models.Goods"/>
+        <association property="goods" select="getGoodsInfo" column="goods_id" javaType="lab4.Models.Goods"/>
+    </resultMap>
+
+    <resultMap id="goodsMap" type="lab4.Models.Goods">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="goodsSn" column="goods_sn"/>
+        <result property="imageUrl" column="image_url"/>
+        <result property="disable" column="disabled"/>
     </resultMap>
     
-    <select id="getGoodsInfo" resultType="lab4.Models.Goods">
+    <select id="getGoodsInfo" resultMap="goodsMap">
         select * from oomall_goods where id = #{id}
     </select>
     
