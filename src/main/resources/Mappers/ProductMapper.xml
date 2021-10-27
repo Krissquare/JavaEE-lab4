@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper.ProductMapper">
+
+    <select id="getProductSKUInfo" parameterType="Integer" resultMap="ProductToGoods">
+        select * from oomall_product where id = #{id}
+    </select>
+
+    <resultMap id="ProductToGoods" type="">
+
+    </resultMap>
+    
+    <select id="getGoodsInfo" resultType="">
+        select * from oomall_goods where id = #{id}
+    </select>
+    
+</mapper>
+
