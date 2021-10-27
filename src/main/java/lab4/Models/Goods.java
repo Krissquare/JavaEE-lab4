@@ -1,4 +1,4 @@
-package Models;
+package lab4.Models;
 
 public class Goods {
 

@@ -1,4 +1,4 @@
-package Utils;
+package lab4.Utils;
 
 import lombok.Data;
 
