@@ -14,7 +14,7 @@ public class Product {
     private Integer price;
     private Integer inventory;
     private Integer state;
-    private Double weight;
+    private Integer weight;
     private String gmtCreate;
     private String gmtModified;
     private Goods goods;

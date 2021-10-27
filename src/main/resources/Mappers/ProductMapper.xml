@@ -6,11 +6,20 @@
         select * from oomall_product where id = #{id}
     </select>
 
-    <resultMap id="ProductToGoods" type="">
-
+    <resultMap id="ProductToGoods" type="Models.Product">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="skuSn" column="product_sn"/>
+        <result property="detail" column="detail"/>
+        <result property="imageUrl" column="image_url"/>
+        <result property="originalPrice" column="original_price"/>
+        <result property="state" column="state"/>
+        <result property="weight" column="weight"/>
+        <result property="disable" column="disable"/>
+        <association property="goods" select="getGoodsInfo" column=" goods_id" javaType="Models.Goods"/>
     </resultMap>
     
-    <select id="getGoodsInfo" resultType="">
+    <select id="getGoodsInfo" resultType="Models.Goods">
         select * from oomall_goods where id = #{id}
     </select>
     
