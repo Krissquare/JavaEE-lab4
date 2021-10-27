@@ -13,8 +13,7 @@ CREATE TABLE `oomall_product` (
                                   `state` tinyint NOT NULL DEFAULT '0',
                                   `disabled` tinyint NOT NULL DEFAULT '0',
                                   PRIMARY KEY (`id`),
-                                  UNIQUE KEY `product_product_sn_uindex` (`product_sn`),
-                                  KEY `product_goods_id_index` (`goods_id`)
+                                  UNIQUE KEY `product_product_sn_uindex` (`product_sn`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `oomall_goods`;
