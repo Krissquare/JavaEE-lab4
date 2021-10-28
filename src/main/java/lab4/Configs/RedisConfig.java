@@ -22,7 +22,7 @@ import java.io.Serializable;
 @Configuration
 public class RedisConfig  {
 
-    @Bean
+    @Bean(name = "redisTemplate")
     public RedisTemplate<String, Serializable> redisTemplate(LettuceConnectionFactory factory) {
         RedisTemplate<String, Serializable> template = new RedisTemplate<>();
         template.setConnectionFactory(factory);
