@@ -24,6 +24,8 @@ public class ProductDao {
         if (product != null){
             return  product;
         }
+        //暂时使用这样的缓存逻辑，肯定是有问题的。有点困，明天改
+        //TODO: optimize redis cache
         product = (Product) productMapper.getProductSKUInfo(id);
         redisUtils.set(id.toString(),product,queryTimeOut);
         return product;
