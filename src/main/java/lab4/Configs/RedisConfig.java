@@ -18,6 +18,7 @@ import java.io.Serializable;
 
 /**
  * @author Ming Qiu
+ * Ming Qiu, yyds!
  **/
 @Configuration
 public class RedisConfig  {
