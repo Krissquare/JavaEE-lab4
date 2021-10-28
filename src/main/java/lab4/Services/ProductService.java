@@ -14,8 +14,11 @@ public class ProductService {
     @Autowired
     private ProductDao productDao;
 
-    public Object getProductSKUInfo(Integer id){
-        return productDao.getProductSKUInfo(id);
+    public Object getProductSKUInfo(Integer id, Boolean useCache){
+        if (useCache == false)
+            return productDao.getProductSKUInfo(id);
+        else
+            return productDao.getProductSKUInfoWithCache(id);
     }
 
 }

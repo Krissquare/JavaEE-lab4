@@ -19,7 +19,7 @@ public class ProductDao {
     @Value("${javaeelab4.product.expiretime}")
     private long queryTimeOut;
 
-    public Object getProductSKUInfo(Integer id){
+    public Object getProductSKUInfoWithCache(Integer id){
         Product product = (Product) redisUtils.get(id.toString());
         if (product != null){
             return  product;
@@ -29,5 +29,9 @@ public class ProductDao {
         product = (Product) productMapper.getProductSKUInfo(id);
         redisUtils.set(id.toString(),product,queryTimeOut);
         return product;
+    }
+
+    public Object getProductSKUInfo(Integer id){
+        return productMapper.getProductSKUInfo(id);
     }
 }

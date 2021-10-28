@@ -18,7 +18,13 @@ public class ProductController {
 
     @GetMapping("{id}")
     public Object getCompleteInformationOfSKU(@PathVariable("id") Integer id){
-        Object result = productService.getProductSKUInfo(id);
+        Object result = productService.getProductSKUInfo(id,false);
+        return BaseResponse.OK(result);
+    }
+
+    @GetMapping("/useRedis/{id}")
+    public Object getCompleteInformationOfSKUWithCache(@PathVariable("id") Integer id){
+        Object result = productService.getProductSKUInfo(id,true);
         return BaseResponse.OK(result);
     }
 
