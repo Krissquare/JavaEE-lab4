@@ -8,7 +8,7 @@ CREATE TABLE `oomall_product` (
                                   `name` varchar(255) DEFAULT NULL,
                                   `original_price` int DEFAULT NULL,
                                   `weight` int DEFAULT NULL,
-                                  `image_url` varchar(100) NOT NULL,
+                                  `image_url` varchar(100) DEFAULT NULL,
                                   `detail` varchar(255) NOT NULL,
                                   `state` tinyint NOT NULL DEFAULT '0',
                                   `disabled` tinyint NOT NULL DEFAULT '0',
