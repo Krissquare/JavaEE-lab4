@@ -82,6 +82,9 @@ mybatis:
     #输出产生的SQL
     #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
+    cache-enabled: false
+    local-cache-scope: statement
+
 
 javaeelab4:
   product:

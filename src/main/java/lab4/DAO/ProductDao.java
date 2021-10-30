@@ -21,13 +21,11 @@ public class ProductDao {
 
     public Object getProductSKUInfoWithCache(Integer id){
         Product product = (Product) redisUtils.get(id.toString());
-        if (product != null){
+        if (product != null)
             return  product;
-        }
-        //暂时使用这样的缓存逻辑，肯定是有问题的。有点困，明天改
-        //TODO: optimize redis cache
         product = (Product) productMapper.getProductSKUInfo(id);
-        redisUtils.set(id.toString(),product,queryTimeOut);
+        if (product != null)
+            redisUtils.set(id.toString(),product,queryTimeOut);
         return product;
     }
 

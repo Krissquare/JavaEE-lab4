@@ -27,7 +27,8 @@ public class GoodsDao {
         GoodsWithProducts gwp = (GoodsWithProducts) redisUtils.get(id.toString());
         if (gwp==null){
             gwp = (GoodsWithProducts) goodsMapper.selectGoodsWithProducts(id);
-            redisUtils.set(id.toString(),gwp,queryTimeOut);
+            if (gwp !=null)
+                redisUtils.set(id.toString(),gwp,queryTimeOut);
         }
         return gwp;
     }
