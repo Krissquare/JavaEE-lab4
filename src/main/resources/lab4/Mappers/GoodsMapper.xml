@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lab4.Mappers.GoodsMapper">
+
+    <select id="selectGoodsWithProducts" resultMap="GWP" useCache="false">
+        select * from oomall_goods where id = #{id}
+    </select>
+
+    <resultMap id="GWP" type="lab4.Models.GoodsWithProducts">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <collection property="products" column="id"
+                    ofType="lab4.Models.Product" javaType="ArrayList" select="selectAllProductsByGoodsId"/>
+    </resultMap>
+
+    <select id="selectAllProductsByGoodsId" resultMap="ProductMap" useCache="false">
+        select * from oomall_product where goods_id = #{id}
+    </select>
+
+    <resultMap id="ProductMap" type="lab4.Models.Product">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+</mapper>
+
